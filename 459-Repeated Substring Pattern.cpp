@@ -20,3 +20,4 @@ public:
     }
 };
 /*先求KMP算法中next数组,若重复k位,则next[len]非0且next[len]整除k，next[len]=len-k(根据next数组求法可得）*/
+//next数组要多求一位
