@@ -44,7 +44,7 @@ public:
             return;
         while(j>0&&k<s.size()-1&&s[j-1]==s[k+1])
         {
-            j--;a
+            j--;
             k++;
         }
          if(k-j+1>maxlen)
