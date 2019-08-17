@@ -34,9 +34,9 @@ public:
         if(!root)
            return val;
         int right=travel(root->right,val);
-        int left=travel(root->left,root->val+right);
         root->val+=right;
-        return left;
+        return travel(root->left,root->val);
+        
         
     }
 };
