@@ -1,4 +1,4 @@
-/*stack*/
+/*stack，再逆转*/
 class Solution {
 public:
     vector<int> postorder(Node* root) {
