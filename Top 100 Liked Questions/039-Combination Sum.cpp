@@ -1,5 +1,6 @@
 //backtracking
-//&&target>=candidates[i] and  start=i are important
+//sort 很关键
+//&&target>=candidates[i] 终止条件 和下一个start=i 不能忽略
 class Solution {
 public:
     vector<vector<int>> combinationSum(vector<int>& candidates, int target) {
