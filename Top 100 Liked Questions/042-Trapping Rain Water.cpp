@@ -64,3 +64,26 @@ public:
         return ret;
     }
 };
+//用stack 每次计算一个小水坑 对于每个i 需要考虑左边情况 计算左边跟右边形成的水沟 可能为-
+class Solution {
+public:
+    int trap(vector<int>& height) {
+        int ret=0,cur=0;
+        stack<int>s;
+        while(cur<height.size())
+        {
+            while(!s.empty()&&height[cur]>height[s.top()])
+            {
+                int top=s.top();
+                s.pop();
+                if(s.empty())
+                    break;
+                int dis=cur-s.top()-1;
+                int bounded_height=min(height[cur],height[s.top()])-height[top];
+                ret+=dis*bounded_height;
+            }
+            s.push(cur++);
+        }
+        return ret;
+    }
+};
