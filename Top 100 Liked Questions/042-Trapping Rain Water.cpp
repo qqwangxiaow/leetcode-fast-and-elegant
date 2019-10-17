@@ -37,3 +37,30 @@ public:
         return ret;
     }
 };
+//dp计算leftmax跟rightmax leftmax指对i来说左边最大的height ，积水就是min（leftmax,rightmax）-height
+class Solution {
+public:
+    int trap(vector<int>& height) {
+        int r=height.size();
+        if(height.empty())
+            return 0;
+        int ret=0;
+        vector<int>leftmax(r,0);
+        vector<int>rightmax(r,0);
+        leftmax[0]=height[0];
+        for(int i=1;i<r;i++)
+        {
+            leftmax[i]=max(height[i],leftmax[i-1]);
+        }
+        rightmax[r-1]=height[r-1];
+        for(int i=r-2;i>=0;i--)
+        {
+            rightmax[i]=max(rightmax[i+1],height[i]);
+        }
+        for(int i=0;i<r;i++)
+        {
+            ret+=min(leftmax[i],rightmax[i])-height[i];
+        }
+        return ret;
+    }
+};
