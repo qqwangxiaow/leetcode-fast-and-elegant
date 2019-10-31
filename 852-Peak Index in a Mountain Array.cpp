@@ -14,7 +14,6 @@ public:
         return r;
     }
 };
-
 //more concise
 class Solution {
 public:
@@ -23,7 +22,7 @@ public:
     }
 };
 
-//O(n)
+//easy
 class Solution {
 public:
     int peakIndexInMountainArray(vector<int> A) {
