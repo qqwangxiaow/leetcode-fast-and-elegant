@@ -1,3 +1,26 @@
+//递归 pre保存上一个结点 head保存最后点头结点
+class Solution {
+    public:
+        TreeNode* increasingBST(TreeNode* root) {
+            if(!root)
+                return NULL;
+            increasingBST(root->left);
+            if(pre!=NULL)
+            {
+                root->left=NULL;
+                pre->right=root;
+            }
+            if(head==NULL)
+            {
+                head=root;
+            }
+            pre=root;
+            increasingBST(root->right);
+            return head;
+        }
+    private:
+        TreeNode *pre,*head;
+    };
 //inorder 用cur保存上一个node位置
 class Solution {
     public:
