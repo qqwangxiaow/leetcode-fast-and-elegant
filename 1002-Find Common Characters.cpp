@@ -1,4 +1,5 @@
 //using two vector
+//string(int n,char c); //用n个字符c初始化
 class Solution {
 public:
     vector<string> commonChars(vector<string>& A) {
