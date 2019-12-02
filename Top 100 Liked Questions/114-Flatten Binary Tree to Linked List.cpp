@@ -41,3 +41,22 @@ public:
     }
 
 };
+//straight forward
+class Solution {
+public:
+    void flatten(TreeNode* root) {
+        if(!root)
+            return;
+        TreeNode *l=root->left;
+        TreeNode *r=root->right;
+        flatten(root->left);
+        root->right=root->left;
+        root->left=NULL;
+        while(root->right)
+        {
+            root=root->right;
+        }
+        flatten(r);
+        root->right=r;
+    }
+};
