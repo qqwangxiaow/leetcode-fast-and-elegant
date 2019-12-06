@@ -1,3 +1,35 @@
+//more concise using one vector
+//cur it self have saved dp[i-1][j-1] and dp[i-1][j]
+//pre means dp[i][j-1] 
+class Solution {
+public:
+    int maximalSquare(vector<vector<char>>& matrix) {
+        if(matrix.empty())
+            return 0;
+        int m=matrix.size(),n=matrix[0].size();
+        int sz=0,pre;
+        vector<int>cur(n,0);
+        for(int i=0;i<m;i++)
+        {
+            for(int j=0;j<n;j++)
+            {
+                int tmp=cur[j];
+                if(!i||!j||matrix[i][j]=='0')
+                {
+                    cur[j]=matrix[i][j]-'0';
+                }
+                else
+                {
+                    cur[j]=min(pre,min(cur[j],cur[j-1]))+1;
+                }
+                pre=tmp;
+                sz=max(sz,cur[j]);  
+            }
+       }
+        return sz*sz;
+    }
+};
+
 //dp[i][j]=min(dp[i-1][j-1],dp[i-1][j],dp[i][j-1])+1
 class Solution {
 public:
@@ -58,33 +90,3 @@ public:
     }
 };
 
-//more concise using one vector
-class Solution {
-public:
-    int maximalSquare(vector<vector<char>>& matrix) {
-        if(matrix.empty())
-            return 0;
-        int m=matrix.size(),n=matrix[0].size();
-        int sz=0,pre;
-        vector<int>cur(n,0);
-        for(int i=0;i<m;i++)
-        {
-
-            for(int j=0;j<n;j++)
-            {
-                int tmp=cur[j];
-                if(!i||!j||matrix[i][j]=='0')
-                {
-                    cur[j]=matrix[i][j]-'0';
-                }
-                else
-                {
-                    cur[j]=min(pre,min(cur[j],cur[j-1]))+1;
-                }
-                pre=tmp;
-                sz=max(sz,cur[j]);  
-            }
-       }
-        return sz*sz;
-    }
-};
