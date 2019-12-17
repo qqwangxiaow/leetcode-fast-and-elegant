@@ -1,36 +1,35 @@
-//recrusive   i means place 
+//each [] is a subproblem 
 class Solution {
 public:
     string decodeString(string s) {
-        int i=0;
-        return decode(s,i);
+        int pos=0;
+        return helper(pos,s);
     }
-    string decode(string &s,int &i)
+    string helper(int &pos,string s)
     {
-        string ret;
-        while(i<s.size()&&s[i]!=']')
+        int num=0;
+        string word="";
+        for(;pos<s.size();pos++)
         {
-            if(!isdigit(s[i]))
+            char cur=s[pos];
+            if(cur=='[')
             {
-                ret+=s[i++];
+                string curStr=helper(++pos,s);
+                for(;num>0;num--) word+=curStr;  //pay attention!!! using while(count--) is not true
+            }
+            else if(cur>='0'&&cur<='9')
+            {
+                num=num*10+cur-'0';
+            }
+            else if(cur==']')
+            {
+                return word;
             }
             else
             {
-                int n=0;
-                while(i<s.size()&&isdigit(s[i]))
-                {
-                    n=n*10+s[i++]-'0';
-                }
-                i++;
-                string t=decode(s,i);
-                i++;
-                while(n--)
-                {
-                    ret+=t;
-                }
+                word+=cur;
             }
         }
-        return ret;
-    }
-
+        return word;   
+    } 
 };
