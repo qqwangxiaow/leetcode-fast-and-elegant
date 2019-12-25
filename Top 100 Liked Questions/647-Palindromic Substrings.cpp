@@ -4,7 +4,7 @@ public:
     int countSubstrings(string s) {
         vector<vector<bool>>dp(s.size(),vector<bool>(s.size(),true));
         int count=s.size();
-        for(int start=s.size()-1;start>=0;start--)
+        for(int start=s.size()-1;start>=0;start--) // for state[i][j], state[i+1][j-1] is its subproblem. So we need to calculate state[i+1][j-1] before state[i][j]. That's why i has to be decreasing.
         {
             for(int len=1;start+len<s.size();len++)
             {
