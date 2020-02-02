@@ -81,7 +81,7 @@ public:
             {
                 kth=nums[idx];
                 break;
-            }
+             }
             else if(idx<k-1)
             {
                 l=idx+1;
@@ -96,8 +96,8 @@ public:
     int partition(vector<int>&arr,int low,int high)
     {
         int pivot=arr[high];
-        int l=low-1,i=low;
-        for(i=low;i<=high-1;i++)
+        int l=low-1;
+        for(int i=low;i<=high-1;i++)
         {
             if(arr[i]>pivot)
             {
