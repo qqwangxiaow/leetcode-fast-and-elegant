@@ -13,7 +13,7 @@ public:
             secQ.push(num);
         if(firstQ.size()>(secQ.size()+1))
         
-            secQ.push(firstQ.top
+            secQ.push(firstQ.top);
             firstQ.pop();
         }
         else if(firstQ.size()+1<secQ.size()) //pay attention!!! if(firstQ.size()<secQ.size()-1) will overflow
