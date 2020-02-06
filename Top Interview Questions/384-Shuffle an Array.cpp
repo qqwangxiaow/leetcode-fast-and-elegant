@@ -1,5 +1,6 @@
 //Fisher-Yates shuffle algorithm
 //swap nums[i] with random nums[i~len]
+//because the sum of shuffle is N!
 class Solution {
 public:
     Solution(vector<int>& nums) {
