@@ -1,4 +1,5 @@
 //using stack,cal maxarea for heigts>= heights[i]
+//h=heights[s.top()] then s.pop()
 class Solution {
 public:
     int largestRectangleArea(vector<int>& heights) {
