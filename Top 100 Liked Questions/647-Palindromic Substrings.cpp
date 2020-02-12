@@ -42,3 +42,28 @@ public:
         return count;
     }
 };
+
+//extend
+class Solution {
+public:
+    int countSubstrings(string s) {
+       for(int i=0;i<s.size();i++)
+       {
+           extendFromCenter(s,i,i);
+           extendFromCenter(s,i,i+1);
+       }
+        return count;
+    }
+    void extendFromCenter(string s,int start,int end)
+    {
+        int len=s.size();
+        while(start>=0&&end<len&&s[start]==s[end])
+        {
+            start--;
+            end++;
+            count++;
+        }
+    }
+private:
+    int count=0;
+};
