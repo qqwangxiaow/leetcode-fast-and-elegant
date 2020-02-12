@@ -22,3 +22,23 @@ public:
         return count;
     }
 };
+//more clear dp[i][j] means s[i..j]
+class Solution {
+public:
+    int countSubstrings(string s) {
+        vector<vector<int>>dp(s.size(),vector<int>(s.size(),0));
+        int count=0;
+        for(int j=0;j<s.size();j++)
+        {
+            for(int i=j;i>=0;i--)
+            {
+                if(s[i]==s[j]&&(j-i<2||dp[i+1][j-1]))
+                {
+                    dp[i][j]=1;
+                    count++;
+                }
+            }
+        }
+        return count;
+    }
+};
