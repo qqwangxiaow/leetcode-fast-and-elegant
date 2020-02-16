@@ -1,5 +1,4 @@
-//1.for(int i=0;i<q.size();i++)
-//2.visited should be done when push to q
+//visited should be done when push to q
 class Solution {
 public:
     int movingCount(int m, int n, int k) {
@@ -11,23 +10,20 @@ public:
         visited[0][0]=1;
         while(!q.empty())
         {
-            for(int j=0;j<q.size();j++)
+            pair<int,int>mypair=q.front();
+            q.pop();
+            if(isvalid(mypair.first,mypair.second,k))
             {
-                pair<int,int>mypair=q.front();
-                q.pop();
-                if(isvalid(mypair.first,mypair.second,k))
+                ret++;
+                for(int i=0;i<4;i++)
                 {
-                    ret++;
-                    for(int i=0;i<4;i++)
+                    int newrow=mypair.first+dirs[i][0];
+                    int newcol=mypair.second+dirs[i][1];
+                    if(newrow>=0&&newcol>=0&&newrow<m&&newcol<n&&!visited[newrow][newcol]&&isvalid(newrow,newcol,k))
                     {
-                        int newrow=mypair.first+dirs[i][0];
-                        int newcol=mypair.second+dirs[i][1];
-                        if(newrow>=0&&newcol>=0&&newrow<m&&newcol<n&&!visited[newrow][newcol]&&isvalid(newrow,newcol,k))
-                        {
-                            visited[newrow][newcol]=1;
-                            q.push(make_pair(newrow,newcol));
-                        }
-                }
+                        visited[newrow][newcol]=1;
+                        q.push(make_pair(newrow,newcol));
+                    }
             }
         }
             
