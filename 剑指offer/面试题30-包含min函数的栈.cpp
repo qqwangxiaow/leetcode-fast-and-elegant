@@ -1,11 +1,16 @@
-//init minvalue=INT_MAX
+//if empty,push x twice 
 class MinStack {
 public:
     /** initialize your data structure here. */
-    MinStack():minvalue(INT_MAX){
+    MinStack(){
     }
     void push(int x) {
-        if(x<=minvalue)
+        if(s.empty())
+        {
+            minvalue=x;
+            s.push(x);
+        }
+        else if(x<=minvalue)
         {
             s.push(minvalue);
             minvalue=x;
@@ -26,7 +31,7 @@ public:
     int top() {
         return s.top();
     }
-    
+
     int min() {
         return minvalue;  
     }
