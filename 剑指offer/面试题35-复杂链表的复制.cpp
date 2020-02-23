@@ -47,3 +47,29 @@ public:
 
     }
 };
+
+//or using map
+class Solution {
+public:
+    Node* copyRandomList(Node* head) {
+        unordered_map<Node*,Node*>mymap;
+        if(!head)
+            return nullptr;
+        Node *cur=head;
+        while(cur)
+        {
+            Node *temp=new Node(cur->val);
+            mymap[cur]=temp;
+            cur=cur->next;
+        }
+        cur=head;
+        while(cur)
+        {
+            mymap[cur]->next=mymap[cur->next];
+            mymap[cur]->random=mymap[cur->random];
+            cur=cur->next;
+        }
+        return mymap[head];
+        
+    }
+};
