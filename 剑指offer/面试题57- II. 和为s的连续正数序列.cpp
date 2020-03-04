@@ -1,0 +1,25 @@
+//l++ not l--
+class Solution {
+public:
+    vector<vector<int>> findContinuousSequence(int target) {
+        vector<vector<int>>ret;
+        vector<int>temp;
+        for(int l=1,r=2;l<r;)
+        {
+            int sum=(l+r)*(r-l+1)/2;
+            if (sum == target){
+                temp.clear();
+                for (int i = l; i <= r; ++i) 
+                    temp.emplace_back(i);
+                ret.emplace_back(temp);
+                l++;
+            }
+            else if(sum<target)
+                r++;
+            else
+                l++;
+        }
+        return ret;
+
+    }
+};
