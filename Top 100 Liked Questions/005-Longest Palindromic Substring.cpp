@@ -37,7 +37,7 @@ public:
         }
         return s.substr(l,maxlen);        
         
-    }a
+    }
     void extendstring(string s,int j,int k)
     {
         if(s[j]!=s[k])
