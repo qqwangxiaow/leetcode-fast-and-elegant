@@ -2,7 +2,7 @@
 class Solution {
 public:
     ListNode* mergeKLists(vector<ListNode*>& lists) {
-        auto lambda=[](const ListNode* l1,const ListNode *l2){return l1->val>l2->val;};
+        auto lambda=[](const ListNode* l1,const ListNode* l2){return l1->val>l2->val;};
         priority_queue<ListNode*,vector<ListNode*>,decltype(lambda)>mypq(lambda);
         for(auto list:lists)
         {
@@ -13,18 +13,16 @@ public:
             return nullptr;
         ListNode *head=mypq.top();
         mypq.pop();
-        if(head->next)
-            mypq.push(head->next);
         ListNode *tail=head;
+        if(head->next) 
+            mypq.push(head->next);
         while(!mypq.empty())
         {
             tail->next=mypq.top();
-            tail=tail->next;
             mypq.pop();
+            tail=tail->next;
             if(tail->next)
-            {
                 mypq.push(tail->next);
-            }
         }
         return head;
     }
