@@ -56,7 +56,7 @@ public:
 //init pre=cur[0] only dp[0][0]=1
 class Solution {
 public:
-    bool isMatch(string s, string p) {
+    bool ch(string s, string p) {
         int m=s.size(),n=p.size();
         vector<int>cur(n+1,0);
         for(int i=0;i<=m;i++)
