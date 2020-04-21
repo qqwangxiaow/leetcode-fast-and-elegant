@@ -9,7 +9,6 @@ public:
         {
             int start=i;
             int cnt=0;
-            for(int j=0;j<s1.size();j++)
             {
                 if(s1[j]==s2[start])
                 {
