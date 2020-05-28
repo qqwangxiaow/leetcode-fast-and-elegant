@@ -1,4 +1,6 @@
 //next=decode(s,++start)
+//if '[' begin recursive
+//if ']' end 
 class Solution {
 public:
     string decodeString(string s) {
