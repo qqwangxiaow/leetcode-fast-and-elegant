@@ -18,3 +18,4 @@ public:
         return q.empty() ? 0 : q.top();
     }
 };
+
