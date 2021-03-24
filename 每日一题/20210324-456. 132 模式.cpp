@@ -1,4 +1,4 @@
-//维护一个单调递减的栈，栈里面的数一定大于k
+//维护一个栈，栈里面的数一定大于k，k也要尽可能大。
 class Solution {
 public:
     bool find132pattern(vector<int>& nums) {
