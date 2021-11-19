@@ -12,3 +12,25 @@ public:
         }
     }
 };
+
+//贪心 其实 +1 是更好的 因为他能消除更多的1 
+//除以2相当于右移
+
+class Solution {
+public:
+    int integerReplacement(int _n) {
+        int ret = 0;
+        long n = _n;
+        while(n != 1) {
+            if (n % 2 == 0) {
+                n /= 2;
+            } else if (n != 3 && ((n >> 1 & 1) == 1)) {
+                n++;
+            } else {
+                n--;
+            }
+            ret++;
+        }
+        return ret;
+    }
+};
